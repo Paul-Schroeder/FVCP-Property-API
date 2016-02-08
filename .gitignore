@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/.vs/FVCP.REST/v14/.suo
+/src/.vs/config/applicationhost.config
+/src/FVCP.Domain/.vs/FVCP.Property/v14/.suo
