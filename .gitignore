@@ -50,3 +50,5 @@
 /src/FVCP.Services.Tests/obj/Debug
 /src/FVCP.Domain/obj/Debug
 /src/FVCP.Business/obj/Debug
+/data/FVCPProperty.ldf
+/data/FVCPProperty.mdf
