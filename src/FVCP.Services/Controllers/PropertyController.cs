@@ -30,7 +30,7 @@ namespace FVCP.Services.Controllers
 
             if (!string.IsNullOrEmpty(pin))
             {
-                var cqProcessor = base.DIContainer.Resolve<ICQProcessor<IPropertyDTO>>();
+                var cqProcessor = base.DIContainer.Resolve<ICQProcessor<PropertyDTO>>();
 
                 var srResult = cqProcessor.Process(new GetPropertyByPinRequest()
                 {

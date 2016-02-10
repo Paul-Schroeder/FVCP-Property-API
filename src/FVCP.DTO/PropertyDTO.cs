@@ -11,262 +11,262 @@ namespace FVCP.DTO
     /// </summary>
     /// <remarks>
     /// Note, automatic properties are not used here in order to removing backing fields from DTO's 
-    /// for serialization purposes.  This avoids properties coming out with names like '...k__BackingField'.
+    /// for serialization purposes.  This avoids properties coming out with names like '...kBackingField'.
     /// </remarks>
     [Serializable]
-    public class PropertyDTO : IPropertyDTO
+    public class PropertyDTO
     {
         public PropertyDTO()
         {
-            this.PropertyTagDTOs = new List<IPropertyTagDTO>();
+            this.PropertyTagDTOs = new List<PropertyTagDTO>();
         }
 
-        private string _pin;
+        private string pin;
 
         public string Pin
         {
-            get { return _pin; }
-            set { _pin = value; }
+            get { return pin; }
+            set { pin = value; }
         }
 
-        private short _classNum;
+        private short classNum;
 
         public short ClassNum
         {
-            get { return _classNum; }
-            set { _classNum = value; }
+            get { return classNum; }
+            set { classNum = value; }
         }
 
-        private int _townNum;
+        private int townNum;
 
         public int TownNum
         {
-            get { return _townNum; }
-            set { _townNum = value; }
+            get { return townNum; }
+            set { townNum = value; }
         }
 
-        private short? _volume;
+        private short? volume;
 
         public short? Volume
         {
-            get { return _volume; }
-            set { _volume = value; }
+            get { return volume; }
+            set { volume = value; }
         }
 
-        private string _locationId;
+        private string locationId;
 
         public string LocationId
         {
-            get { return _locationId; }
-            set { _locationId = value; }
+            get { return locationId; }
+            set { locationId = value; }
         }
 
-        private int _taxCode;
+        private int taxCode;
 
         public int TaxCode
         {
-            get { return _taxCode; }
-            set { _taxCode = value; }
+            get { return taxCode; }
+            set { taxCode = value; }
         }
 
-        private int _neighborhoodId;
+        private int neighborhoodId;
 
         public int NeighborhoodId
         {
-            get { return _neighborhoodId; }
-            set { _neighborhoodId = value; }
+            get { return neighborhoodId; }
+            set { neighborhoodId = value; }
         }
 
-        private short? _homeImpYear;
+        private short? homeImpYear;
 
         public short? HomeImpYear
         {
-            get { return _homeImpYear; }
-            set { _homeImpYear = value; }
+            get { return homeImpYear; }
+            set { homeImpYear = value; }
         }
 
-        private string _resType;
+        private string resType;
 
         public string ResType
         {
-            get { return _resType; }
-            set { _resType = value; }
+            get { return resType; }
+            set { resType = value; }
         }
 
-        private string _buildingUse;
+        private string buildingUse;
 
         public string BuildingUse
         {
-            get { return _buildingUse; }
-            set { _buildingUse = value; }
+            get { return buildingUse; }
+            set { buildingUse = value; }
         }
 
-        private string _aptCount;
+        private string aptCount;
 
         public string AptCount
         {
-            get { return _aptCount; }
-            set { _aptCount = value; }
+            get { return aptCount; }
+            set { aptCount = value; }
         }
 
-        private string _commUnits;
+        private string commUnits;
 
         public string CommUnits
         {
-            get { return _commUnits; }
-            set { _commUnits = value; }
+            get { return commUnits; }
+            set { commUnits = value; }
         }
 
-        private string  _extDesc;
+        private string  extDesc;
 
         public string ExtDesc
         {
-            get { return _extDesc; }
-            set { _extDesc = value; }
+            get { return extDesc; }
+            set { extDesc = value; }
         }
 
-        private byte? _fullBath;
+        private byte? fullBath;
 
         public byte? FullBath
         {
-            get { return _fullBath; }
-            set { _fullBath = value; }
+            get { return fullBath; }
+            set { fullBath = value; }
         }
 
-        private byte? _halfBath;
+        private byte? halfBath;
 
         public byte? HalfBath
         {
-            get { return _halfBath; }
-            set { _halfBath = value; }
+            get { return halfBath; }
+            set { halfBath = value; }
         }
 
-        private string _basementDesc;
+        private string basementDesc;
 
         public string BasementDesc
         {
-            get { return _basementDesc; }
-            set { _basementDesc = value; }
+            get { return basementDesc; }
+            set { basementDesc = value; }
         }
 
-        private string _atticDesc;
+        private string atticDesc;
 
         public string AtticDesc
         {
-            get { return _atticDesc; }
-            set { _atticDesc = value; }
+            get { return atticDesc; }
+            set { atticDesc = value; }
         }
 
-        private byte? _airCond;
+        private byte? airCond;
 
         public byte? AirCond
         {
-            get { return _airCond; }
-            set { _airCond = value; }
+            get { return airCond; }
+            set { airCond = value; }
         }
 
-        private byte? _firePlace;
+        private byte? firePlace;
 
         public byte? Fireplace
         {
-            get { return _firePlace; }
-            set { _firePlace = value; }
+            get { return firePlace; }
+            set { firePlace = value; }
         }
 
-        private string _garageDesc;
+        private string garageDesc;
 
         public string GarageDesc
         {
-            get { return _garageDesc; }
-            set { _garageDesc = value; }
+            get { return garageDesc; }
+            set { garageDesc = value; }
         }
 
-        private short _age;
+        private short age;
 
         public short Age
         {
-            get { return _age; }
-            set { _age = value; }
+            get { return age; }
+            set { age = value; }
         }
 
-        private int? _buildingSF;
+        private int? buildingSF;
 
         public int? BuildingSF
         {
-            get { return _buildingSF; }
-            set { _buildingSF = value; }
+            get { return buildingSF; }
+            set { buildingSF = value; }
         }
 
-        private int? _landSF;
+        private int? landSF;
 
         public int? LandSF
         {
-            get { return _landSF; }
-            set { _landSF = value; }
+            get { return landSF; }
+            set { landSF = value; }
         }
 
-        private string _totalAllBuildingSF;
+        private string totalAllBuildingSF;
 
         public string TotalAllBuildingSF
         {
-            get { return _totalAllBuildingSF; }
-            set { _totalAllBuildingSF = value; }
+            get { return totalAllBuildingSF; }
+            set { totalAllBuildingSF = value; }
         }
 
-        private string _unitsTotal;
+        private string unitsTotal;
 
         public string UnitsTotal
         {
-            get { return _unitsTotal; }
-            set { _unitsTotal = value; }
+            get { return unitsTotal; }
+            set { unitsTotal = value; }
         }
 
-        private string _saleDate;
+        private string saleDate;
 
         public string SaleDate
         {
-            get { return _saleDate; }
-            set { _saleDate = value; }
+            get { return saleDate; }
+            set { saleDate = value; }
         }
 
-        private int? _saleAmount;
+        private int? saleAmount;
 
         public int? SaleAmount
         {
-            get { return _saleAmount; }
-            set { _saleAmount = value; }
+            get { return saleAmount; }
+            set { saleAmount = value; }
         }
 
-        private IPropertyClassDTO _propertyClassDTO;
+        private PropertyClassDTO propertyClassDTO;
 
-        public virtual IPropertyClassDTO PropertyClassDTO
+        public virtual PropertyClassDTO PropertyClassDTO
         {
-            get { return _propertyClassDTO; }
-            set { _propertyClassDTO = value; }
+            get { return propertyClassDTO; }
+            set { propertyClassDTO = value; }
         }
 
-        private ITownshipDTO _townshipDTO;
+        private TownshipDTO townshipDTO;
 
-        public virtual ITownshipDTO TownshipDTO
+        public virtual TownshipDTO TownshipDTO
         {
-            get { return _townshipDTO; }
-            set { _townshipDTO = value; }
+            get { return townshipDTO; }
+            set { townshipDTO = value; }
         }
 
-        private IPropertyAddressDTO _propertyAddressDTO;
+        private PropertyAddressDTO propertyAddressDTO;
 
-        public virtual IPropertyAddressDTO PropertyAddressDTO
+        public virtual PropertyAddressDTO PropertyAddressDTO
         {
-            get { return _propertyAddressDTO; }
-            set { _propertyAddressDTO = value; }
+            get { return propertyAddressDTO; }
+            set { propertyAddressDTO = value; }
         }
 
-        private List<IPropertyTagDTO> _propertyTagDTOs;
+        private List<PropertyTagDTO> propertyTagDTOs;
 
-        public virtual List<IPropertyTagDTO> PropertyTagDTOs
+        public virtual List<PropertyTagDTO> PropertyTagDTOs
         {
-            get { return _propertyTagDTOs; }
-            set { _propertyTagDTOs = value; }
+            get { return propertyTagDTOs; }
+            set { propertyTagDTOs = value; }
         }
 
     }

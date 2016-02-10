@@ -9,7 +9,7 @@ namespace FVCP.Domain
 {
     public class PropertyTagFactory
     {
-        public virtual IPropertyTag Create(IPropertyTagDTO dto)
+        public virtual IPropertyTag Create(PropertyTagDTO dto)
         {
             return new PropertyTag(dto);
         }

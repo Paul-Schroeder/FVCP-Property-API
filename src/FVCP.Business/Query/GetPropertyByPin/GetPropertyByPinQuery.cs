@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Business.Query
 {
-    public class GetPropertyByPinQuery : ICQExecution<IPropertyDTO, GetPropertyByPinRequest>
+    public class GetPropertyByPinQuery : ICQExecution<PropertyDTO, GetPropertyByPinRequest>
     {
         IPropertyRepository _propertyRepository;
 
@@ -17,9 +17,9 @@ namespace FVCP.Business.Query
             this._propertyRepository = propertyRepository;
         }
 
-        public ServiceResult<IPropertyDTO> Execute(GetPropertyByPinRequest request)
+        public ServiceResult<PropertyDTO> Execute(GetPropertyByPinRequest request)
         {
-            ServiceResult<IPropertyDTO> retVal = new ServiceResult<IPropertyDTO>();
+            ServiceResult<PropertyDTO> retVal = new ServiceResult<PropertyDTO>();
             retVal.Data = _propertyRepository.GetByPin(request.Pin).Data;
 
             if (retVal.Data != null)

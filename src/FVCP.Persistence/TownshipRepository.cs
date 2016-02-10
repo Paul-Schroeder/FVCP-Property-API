@@ -10,12 +10,12 @@ namespace FVCP.Persistence
 {
     public class TownshipRepository : ITownshipRepository
     {
-        public static ITownshipDTO MapFieldValues(EF.Township dbItem)
+        public static TownshipDTO MapFieldValues(EF.Township dbItem)
         {
             if (dbItem == null)
                 return null;
 
-            ITownshipDTO retVal = new TownshipDTO()
+            TownshipDTO retVal = new TownshipDTO()
             {
                 TownNum = dbItem.TownNum,
                 Name = dbItem.Name

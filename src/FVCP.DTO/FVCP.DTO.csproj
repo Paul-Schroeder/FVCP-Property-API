@@ -40,11 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPropertyDTO.cs" />
-    <Compile Include="IPropertyAddressDTO.cs" />
-    <Compile Include="IPropertyClassDTO.cs" />
-    <Compile Include="IPropertyTagDTO.cs" />
-    <Compile Include="ITownshipDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyDTO.cs" />
     <Compile Include="PropertyAddressDTO.cs" />

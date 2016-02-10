@@ -9,11 +9,11 @@ namespace FVCP.Domain
 {
     public class Township : ITownship
     {
-        public Township(ITownshipDTO data)
+        public Township(TownshipDTO data)
         {
             this.Data = data;
         }
 
-        public ITownshipDTO Data { get; set; }
+        public TownshipDTO Data { get; set; }
     }
 }

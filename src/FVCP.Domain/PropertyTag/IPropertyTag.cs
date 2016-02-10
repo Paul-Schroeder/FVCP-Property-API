@@ -9,6 +9,6 @@ namespace FVCP.Domain
 {
     public interface IPropertyTag
     {
-        IPropertyTagDTO Data { get; set; }
+        PropertyTagDTO Data { get; set; }
     }
 }

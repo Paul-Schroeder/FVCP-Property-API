@@ -10,12 +10,12 @@ namespace FVCP.Persistence
 {
     public class PropertyClassRepository : IPropertyClassRepository
     {
-        public static IPropertyClassDTO MapFieldValues(EF.PropertyClass dbItem)
+        public static PropertyClassDTO MapFieldValues(EF.PropertyClass dbItem)
         {
             if (dbItem == null)
                 return null;
 
-            IPropertyClassDTO retVal = new PropertyClassDTO()
+            PropertyClassDTO retVal = new PropertyClassDTO()
             {
                 ClassNum = dbItem.ClassNum,
                 Name = dbItem.Name

@@ -10,12 +10,12 @@ namespace FVCP.Persistence
 {
     public class PropertyAddressRepository : IPropertyAddressRepository
     {
-        public static IPropertyAddressDTO MapFieldValues(EF.PropertyAddress dbItem)
+        public static PropertyAddressDTO MapFieldValues(EF.PropertyAddress dbItem)
         {
             if (dbItem == null)
                 return null;
 
-            IPropertyAddressDTO dto = new PropertyAddressDTO()
+            PropertyAddressDTO dto = new PropertyAddressDTO()
             {
                 Apt = dbItem.Apt,
                 City = dbItem.City,

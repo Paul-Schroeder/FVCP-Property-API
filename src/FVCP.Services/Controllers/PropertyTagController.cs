@@ -1,6 +1,7 @@
 ﻿using FVCP.Business.Query;
 using FVCP.DTO;
 using FVCP.Infrastructure;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +20,27 @@ namespace FVCP.Services.Controllers
         }
 
         [ActionName("DefaultAction")]
-        public PropertyTagDTO Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            PropertyTagDTO retVal = null;
+            IHttpActionResult retVal = null;
 
-            if (id > 0)
+            if (id <= 0)
             {
-                var cqProcessor = base.DIContainer.Resolve<ICQProcessor<IPropertyTagDTO>>();
-
+                retVal = BadRequest("Id must be greater than zero.");
+            }
+            else
+            {
+                var cqProcessor = base.DIContainer.Resolve<ICQProcessor<PropertyTagDTO>>();
                 var srResult = cqProcessor.Process(new GetPropertyTagByIdRequest() { Id = id });
 
                 if (srResult.Success)
-                    retVal = srResult.Data as PropertyTagDTO;
+                {
+                    retVal = Ok<PropertyTagDTO>(srResult.Data); //JsonConvert.SerializeObject(srResult.Data);
+                }
+                else
+                {
+                    retVal = NotFound();
+                }
             }
 
             return retVal;

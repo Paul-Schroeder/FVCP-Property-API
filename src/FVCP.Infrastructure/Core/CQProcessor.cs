@@ -19,16 +19,18 @@ namespace FVCP.Infrastructure
 
         public ServiceResult<T> Process<TRequest>(TRequest request) where TRequest : IRequest
         {
-            var command = container.Resolve<ICQExecution<T, TRequest>>();
+            //var type = typeof(ICQExecution<,>).MakeGenericType(typeof(T), typeof(TRequest));
+            //var command = container.Resolve(type);
+            var cqProcessor = container.Resolve<ICQExecution<T, TRequest>>();
             ServiceResult<T> retVal = new ServiceResult<T>();
 
             try
             {
-                retVal = command.Execute(request);
+                retVal = cqProcessor.Execute(request);
             }
             finally
             {
-                container.Release(command);
+                container.Release(cqProcessor);
             }
 
             return retVal;

@@ -9,7 +9,7 @@ namespace FVCP.Domain
 {
     public interface IProperty
     {
-        IPropertyDTO Data { get; set; }
+        PropertyDTO Data { get; set; }
 
         IPropertyClass PropertyClass { get; set; }
         ITownship Township { get; set; }

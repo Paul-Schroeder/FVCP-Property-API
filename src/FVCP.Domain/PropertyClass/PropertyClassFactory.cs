@@ -9,7 +9,7 @@ namespace FVCP.Domain
 {
     public class PropertyClassFactory
     {
-        public virtual IPropertyClass Create(IPropertyClassDTO dto)
+        public virtual IPropertyClass Create(PropertyClassDTO dto)
         {
             return new PropertyClass(dto);
         }

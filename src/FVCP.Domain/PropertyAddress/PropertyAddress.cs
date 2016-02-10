@@ -9,11 +9,11 @@ namespace FVCP.Domain
 {
     public class PropertyAddress : PropertyAddressDTO, IPropertyAddress
     {
-        public PropertyAddress(IPropertyAddressDTO data)
+        public PropertyAddress(PropertyAddressDTO data)
         {
             this.Data = data;
         }
 
-        public IPropertyAddressDTO Data { get; set; }
+        public PropertyAddressDTO Data { get; set; }
     }
 }

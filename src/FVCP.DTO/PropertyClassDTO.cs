@@ -11,25 +11,25 @@ namespace FVCP.DTO
     /// </summary>
     /// <remarks>
     /// Note, automatic properties are not used here in order to removing backing fields from DTO's 
-    /// for serialization purposes.  This avoids properties coming out with names like '...k__BackingField'.
+    /// for serialization purposes.  This avoids properties coming out with names like '...kBackingField'.
     /// </remarks>
     [Serializable]
-    public class PropertyClassDTO : IPropertyClassDTO
+    public class PropertyClassDTO
     {
-        private short _classNum;
+        private short classNum;
 
         public short ClassNum
         {
-            get { return _classNum; }
-            set { _classNum = value; }
+            get { return classNum; }
+            set { classNum = value; }
         }
 
-        private string _name;
+        private string name;
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
 
 

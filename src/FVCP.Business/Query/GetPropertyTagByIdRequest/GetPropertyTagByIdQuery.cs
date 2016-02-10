@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Business.Query
 {
-    public class GetPropertyTagByIdQuery : ICQExecution<IPropertyTagDTO, GetPropertyTagByIdRequest>
+    public class GetPropertyTagByIdQuery : ICQExecution<PropertyTagDTO, GetPropertyTagByIdRequest>
     {
         IPropertyTagRepository _repo;
 
@@ -17,9 +17,9 @@ namespace FVCP.Business.Query
             this._repo = repo;
         }
 
-        public ServiceResult<IPropertyTagDTO> Execute(GetPropertyTagByIdRequest request)
+        public ServiceResult<PropertyTagDTO> Execute(GetPropertyTagByIdRequest request)
         {
-            ServiceResult<IPropertyTagDTO> retVal = new ServiceResult<IPropertyTagDTO>();
+            ServiceResult<PropertyTagDTO> retVal = new ServiceResult<PropertyTagDTO>();
             retVal.Data = _repo.GetPropertyTagById(request.Id).Data;
 
             if (retVal.Data != null)

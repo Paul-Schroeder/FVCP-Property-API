@@ -9,6 +9,6 @@ namespace FVCP.Domain
 {
     public interface ITownship
     {
-        ITownshipDTO Data { get; set; }
+        TownshipDTO Data { get; set; }
     }
 }

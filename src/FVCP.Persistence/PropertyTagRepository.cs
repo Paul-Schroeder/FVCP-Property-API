@@ -20,19 +20,19 @@ namespace FVCP.Persistence
                     .FirstOrDefault(x => x.Id == id);
             }
 
-            IPropertyTagDTO dto = PropertyTagRepository.MapFieldValues(dbItem);
+            PropertyTagDTO dto = PropertyTagRepository.MapFieldValues(dbItem);
             PropertyTagFactory myFact = new PropertyTagFactory();
             IPropertyTag retVal = myFact.Create(dto);
 
             return retVal;
         }
 
-        public static IPropertyTagDTO MapFieldValues(EF.PropertyTag dbItem)
+        public static PropertyTagDTO MapFieldValues(EF.PropertyTag dbItem)
         {
             if (dbItem == null)
                 return null;
 
-            IPropertyTagDTO retVal = new PropertyTagDTO()
+            PropertyTagDTO retVal = new PropertyTagDTO()
             {
                 Id = dbItem.Id,
                 Name = dbItem.Name,
@@ -42,16 +42,16 @@ namespace FVCP.Persistence
             return retVal;
         }
 
-        public static List<IPropertyTagDTO> MapFieldValues(ICollection<EF.PropertyTag> dbItems)
+        public static List<PropertyTagDTO> MapFieldValues(ICollection<EF.PropertyTag> dbItems)
         {
-            List<IPropertyTagDTO> retVal = new List<IPropertyTagDTO>();
+            List<PropertyTagDTO> retVal = new List<PropertyTagDTO>();
 
             if (dbItems == null)
                 return retVal;
 
             foreach (var dbItem in dbItems)
             {
-                IPropertyTagDTO dto = new PropertyTagDTO()
+                PropertyTagDTO dto = new PropertyTagDTO()
                 {
                     Id = dbItem.Id,
                     Name = dbItem.Name,

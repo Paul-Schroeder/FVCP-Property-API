@@ -9,11 +9,11 @@ namespace FVCP.Domain
 {
     public class PropertyTag : IPropertyTag
     {
-        public PropertyTag(IPropertyTagDTO data)
+        public PropertyTag(PropertyTagDTO data)
         {
             this.Data = data;
         }
 
-        public IPropertyTagDTO Data { get; set; }
+        public PropertyTagDTO Data { get; set; }
     }
 }

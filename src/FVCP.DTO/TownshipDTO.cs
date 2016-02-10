@@ -7,9 +7,23 @@ using System.Threading.Tasks;
 namespace FVCP.DTO
 {
     [Serializable]
-    public class TownshipDTO : ITownshipDTO
+    public class TownshipDTO
     {
-        public int TownNum { get; set; }
-        public string Name { get; set; }
+        private int townNum;
+
+        public int TownNum
+        {
+            get { return townNum; }
+            set { townNum = value; }
+        }
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
     }
 }
