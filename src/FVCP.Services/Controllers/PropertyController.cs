@@ -8,16 +8,43 @@ using FVCP.Business;
 
 using FVCP.Infrastructure;
 using FVCP.Business.Command;
+using Newtonsoft.Json;
+using FVCP.Business.Query;
+using FVCP.DTO;
 
 namespace FVCP.Services.Controllers
 {
-    public class PropertyController : ApiController
+    public class PropertyController : BaseCQAPIController
     {
-        IRequestProcessor _requestProcessor;
+        //IRequestProcessor _requestProcessor;
 
-        public PropertyController(IRequestProcessor requestProcessor)
+        public PropertyController(Castle.Windsor.IWindsorContainer container)
+            : base(container)
         {
-            this._requestProcessor = requestProcessor;
+        }
+
+        [ActionName("DefaultAction")]
+        public string Get(string pin)
+        {
+            string retVal = null;
+
+            if (!string.IsNullOrEmpty(pin))
+            {
+                var cqProcessor = base.DIContainer.Resolve<ICQProcessor<IPropertyDTO>>();
+
+                var srResult = cqProcessor.Process(new GetPropertyByPinRequest()
+                {
+                    Pin = pin
+                });
+
+                //var srProperty = new GetPropertyByPinQuery( requestProcessor.Execute(
+                //    new GetPropertyByPinRequest()
+                //    {
+                //        Pin = pin
+                //    });
+            }
+
+            return retVal;
         }
 
         [HttpGet]
@@ -29,7 +56,7 @@ namespace FVCP.Services.Controllers
                 Tag = tag
             };
 
-            _requestProcessor.Process<AddPropertyTagRequest>(request);
+//            _requestProcessor.Process<AddPropertyTagRequest>(request);
         }
 
     }

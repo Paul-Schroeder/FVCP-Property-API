@@ -1,7 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using FVCP.Property;
+using FVCP.Domain;
 
 namespace FVCP.Infrastructure.DependencyInjection
 {

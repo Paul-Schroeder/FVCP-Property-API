@@ -29,10 +29,16 @@ namespace FVCP.Services
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // Map this rule first
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                 "WithActionApi",
+                 "api/{controller}/{action}/{id}"
+             );
+
+            config.Routes.MapHttpRoute(
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new { action = "DefaultAction", id = System.Web.Http.RouteParameter.Optional }
             );
         }
 

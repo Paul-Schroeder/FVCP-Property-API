@@ -1,9 +1,9 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using FVCP.Domain;
 //using MongoDB.Driver;
 using FVCP.Persistence;
-using FVCP.Property;
 
 namespace FVCP.Infrastructure.DependencyInjection
 {

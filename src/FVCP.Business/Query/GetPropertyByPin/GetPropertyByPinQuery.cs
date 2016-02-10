@@ -1,5 +1,5 @@
-﻿using FVCP.Property;
-using FVCP.Core;
+﻿using FVCP.Domain;
+using FVCP.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Business.Query
 {
-    public class GetPropertyByPinQuery
+    public class GetPropertyByPinQuery : ICQExecution<IPropertyDTO, GetPropertyByPinRequest>
     {
         IPropertyRepository _propertyRepository;
 
@@ -17,10 +17,16 @@ namespace FVCP.Business.Query
             this._propertyRepository = propertyRepository;
         }
 
-        public ServiceResult<IProperty> Execute(string pin)
+        public ServiceResult<IPropertyDTO> Execute(GetPropertyByPinRequest request)
         {
-            ServiceResult<IProperty> retVal = new ServiceResult<IProperty>();
-            retVal.Data = _propertyRepository.GetByPin(pin);
+            ServiceResult<IPropertyDTO> retVal = new ServiceResult<IPropertyDTO>();
+            retVal.Data = _propertyRepository.GetByPin(request.Pin).Data;
+
+            if (retVal.Data != null)
+            {
+                retVal.Success = true;
+            }
+
             return retVal;
         }
 

@@ -20,6 +20,10 @@ namespace FVCP.Services
     {
         WindsorContainer _container;
 
+        public WindsorContainer DIContainer { get {
+                return _container;
+            } }
+
         protected void Application_Start()
         {
             ConfigureWindsor(GlobalConfiguration.Configuration);

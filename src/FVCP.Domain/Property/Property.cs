@@ -1,24 +1,120 @@
-﻿using System;
+﻿using FVCP.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FVCP.Property
+namespace FVCP.Domain
 {
-    public class Property : IProperty
+    public class Property : PropertyDTO, IProperty
     {
-        public Property()
+        public Property(IPropertyDTO data)
         {
-            this.Tags = new List<string>();
+            this.Data = data;
         }
 
-        public string Pin { get; set; }
-        public List<string> Tags { get; set; }
+        public IPropertyDTO Data { get; set; }
 
-        public void AddTag(string tag)
+        IPropertyAddress _propertyAddress;
+        public IPropertyAddress PropertyAddress
         {
-            Tags.Add(tag);
+            get
+            {
+                if (_propertyAddress == null && this.Data != null)
+                {   // Initialize based upon our DTO data.
+                    PropertyAddressFactory myFact = new PropertyAddressFactory();
+                    _propertyAddress = myFact.Create(this.Data.PropertyAddressDTO);
+                }
+
+                return _propertyAddress;
+            }
+
+            set
+            {
+                _propertyAddress = value;
+            }
         }
+
+        IPropertyClass _propertyClass;
+        public IPropertyClass PropertyClass
+        {
+            get
+            {
+                if (_propertyClass == null && this.Data != null)
+                {   // Initialize based upon our DTO data.
+                    PropertyClassFactory myFact = new PropertyClassFactory();
+                    _propertyClass = myFact.Create(this.Data.PropertyClassDTO);
+                }
+
+                return _propertyClass;
+            }
+
+            set
+            {
+                _propertyClass = value;
+            }
+        }
+
+        List<IPropertyTag> _propertyTags;
+        public List<IPropertyTag> PropertyTags
+        {
+            get
+            {
+                if (_propertyTags == null && this.Data != null && this.Data.PropertyTagDTOs != null)
+                {   // Initialize based upon our DTO data.
+                    PropertyTagFactory myFact = new PropertyTagFactory();
+                    _propertyTags = new List<IPropertyTag>();
+                    foreach (var item in this.Data.PropertyTagDTOs)
+                    {
+                        _propertyTags.Add(myFact.Create(item));
+                    }
+                }
+
+                return _propertyTags;
+            }
+
+            set
+            {
+                _propertyTags = value;
+            }
+        }
+
+        ITownship _township;
+        public ITownship Township
+        {
+            get
+            {
+                if (_township == null && this.Data != null)
+                {   // Initialize based upon our DTO data.
+                    TownshipFactory myFact = new TownshipFactory();
+                    _township = myFact.Create(this.Data.TownshipDTO);
+                }
+
+                return _township;
+            }
+
+            set
+            {
+                _township = value;
+            }
+        }
+
+        public void AddPropertyTag(string tag)
+        {
+            IPropertyTag myTag = this.PropertyTags.FirstOrDefault(x => x.Data.Name == tag);
+            if (myTag == null)
+            {
+                PropertyTagFactory myFact = new PropertyTagFactory();
+                myTag = myFact.Create(new PropertyTagDTO() {
+                    Id = 0,
+                    Name = tag,
+                    Pin = this.Data.Pin
+                });
+
+                this.PropertyTags.Add(myTag);
+            }
+        }
+
     }
 }

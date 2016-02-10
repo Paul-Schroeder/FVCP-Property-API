@@ -52,3 +52,15 @@
 /src/FVCP.Business/obj/Debug
 /data/FVCPProperty.ldf
 /data/FVCPProperty.mdf
+/src/FVCP.Business/bin/Debug
+/src/FVCP.Domain/bin
+/src/FVCP.Infrastructure/bin/Debug
+/src/FVCP.Infrastructure/obj/Debug
+/src/FVCP.Persistence/bin/Debug
+/src/FVCP.Services/bin
+/src/FVCP.Services/obj/Debug
+/src/FVCP.Services.Tests/bin/Debug
+/src/FVCP.DTO/bin/Debug
+/src/FVCP.DTO/obj/Debug
+/src/FVCP.Services/zApplication.log
+/src/packages/log4net.2.0.5

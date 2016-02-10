@@ -7,7 +7,7 @@ namespace FVCP.Infrastructure.DependencyInjection
     {
         public virtual void ComposeApplication(IWindsorContainer container)
         {
-            container.AddFacility<LoggingFacility>(f => f.UseLog4Net());
+            //container.AddFacility<LoggingFacility>(f => f.UseLog4Net());
 
             container.Install(
                 new Infrastructure(),

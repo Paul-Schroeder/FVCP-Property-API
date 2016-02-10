@@ -1,16 +1,17 @@
-﻿using System;
+﻿using FVCP.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FVCP.Property
+namespace FVCP.Domain
 {
     public class PropertyFactory
     {
-        public virtual IProperty Create()
+        public virtual IProperty Create(IPropertyDTO dto)
         {
-            return new Property();
+            return new Property(dto);
         }
     }
 }

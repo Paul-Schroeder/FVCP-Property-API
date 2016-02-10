@@ -8,27 +8,27 @@ using FVCP.Business;
 
 namespace FVCP.Infrastructure
 {
-    public class RequestProcessor : IRequestProcessor
-    {
-        readonly IWindsorContainer container;
+    //public class RequestProcessor : IRequestProcessor
+    //{
+    //    readonly IWindsorContainer container;
 
-        public RequestProcessor(IWindsorContainer container)
-        {
-            this.container = container;
-        }
+    //    public RequestProcessor(IWindsorContainer container)
+    //    {
+    //        this.container = container;
+    //    }
 
-        public void Process<TRequest>(TRequest request) where TRequest : IRequest
-        {
-            var command = container.Resolve<ICommand<TRequest>>();
+    //    public void Process<TRequest>(TRequest request) where TRequest : IRequest
+    //    {
+    //        var command = container.Resolve<ICommand<TRequest>>();
 
-            try
-            {
-                command.Execute(request);
-            }
-            finally
-            {
-                container.Release(command);
-            }
-        }
-    }
+    //        try
+    //        {
+    //            command.Execute(request);
+    //        }
+    //        finally
+    //        {
+    //            container.Release(command);
+    //        }
+    //    }
+    //}
 }

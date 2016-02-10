@@ -40,12 +40,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\ServiceResult.cs" />
+    <Compile Include="PropertyAddress\IPropertyAddress.cs" />
+    <Compile Include="PropertyAddress\IPropertyAddressRepository.cs" />
+    <Compile Include="PropertyAddress\PropertyAddress.cs" />
+    <Compile Include="PropertyAddress\PropertyAddressFactory.cs" />
+    <Compile Include="PropertyClass\IPropertyClass.cs" />
+    <Compile Include="PropertyClass\IPropertyClassRepository.cs" />
+    <Compile Include="PropertyClass\PropertyClass.cs" />
+    <Compile Include="PropertyClass\PropertyClassFactory.cs" />
+    <Compile Include="PropertyTag\IPropertyTag.cs" />
+    <Compile Include="PropertyTag\IPropertyTagRepository.cs" />
+    <Compile Include="PropertyTag\PropertyTag.cs" />
+    <Compile Include="PropertyTag\PropertyTagFactory.cs" />
     <Compile Include="Property\IPropertyRepository.cs" />
     <Compile Include="Property\PropertyFactory.cs" />
     <Compile Include="Property\Property.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property\IProperty.cs" />
+    <Compile Include="Township\ITownship.cs" />
+    <Compile Include="Township\ITownshipRepository.cs" />
+    <Compile Include="Township\Township.cs" />
+    <Compile Include="Township\TownshipFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FVCP.DTO\FVCP.DTO.csproj">
+      <Project>{30ae912c-ee77-420b-b088-c205afa35d56}</Project>
+      <Name>FVCP.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

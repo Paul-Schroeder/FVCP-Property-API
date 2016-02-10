@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PropertyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Pin" />
+          </Key>
+          <Property Name="Pin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassNum" Type="smallint" Nullable="false" />
+          <Property Name="TownNum" Type="int" Nullable="false" />
+          <Property Name="Volume" Type="smallint" />
+          <Property Name="LocationId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaxCode" Type="int" Nullable="false" />
+          <Property Name="NeighborhoodId" Type="int" Nullable="false" />
+          <Property Name="HomeImpYear" Type="smallint" />
+          <Property Name="ResType" Type="varchar" MaxLength="50" />
+          <Property Name="BuildingUse" Type="varchar" MaxLength="50" />
+          <Property Name="AptCount" Type="varchar" MaxLength="50" />
+          <Property Name="CommUnits" Type="char" MaxLength="1" />
+          <Property Name="ExtDesc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullBath" Type="tinyint" />
+          <Property Name="HalfBath" Type="tinyint" />
+          <Property Name="BasementDesc" Type="varchar" MaxLength="50" />
+          <Property Name="AtticDesc" Type="varchar" MaxLength="50" />
+          <Property Name="AirCond" Type="tinyint" />
+          <Property Name="Fireplace" Type="tinyint" />
+          <Property Name="GarageDesc" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="smallint" Nullable="false" />
+          <Property Name="BuildingSF" Type="int" />
+          <Property Name="LandSF" Type="int" />
+          <Property Name="TotalAllBuildingSF" Type="varchar" MaxLength="50" />
+          <Property Name="UnitsTotal" Type="varchar" MaxLength="50" />
+          <Property Name="SaleDate" Type="varchar" MaxLength="50" />
+          <Property Name="SaleAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="PropertyAddress">
+          <Key>
+            <PropertyRef Name="Pin" />
+          </Key>
+          <Property Name="Pin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HouseNum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StreetDir" Type="varchar" MaxLength="50" />
+          <Property Name="Street" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Suffix" Type="varchar" MaxLength="50" />
+          <Property Name="Apt" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zip" Type="smallint" />
+        </EntityType>
+        <EntityType Name="PropertyClass">
+          <Key>
+            <PropertyRef Name="ClassNum" />
+          </Key>
+          <Property Name="ClassNum" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Township">
+          <Key>
+            <PropertyRef Name="TownNum" />
+          </Key>
+          <Property Name="TownNum" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Property_PropertyClass">
+          <End Role="PropertyClass" Type="Self.PropertyClass" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyClass">
+              <PropertyRef Name="ClassNum" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ClassNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_Township">
+          <End Role="Township" Type="Self.Township" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Township">
+              <PropertyRef Name="TownNum" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="TownNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyAddress_Property">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="PropertyAddress" Type="Self.PropertyAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Pin" />
+            </Principal>
+            <Dependent Role="PropertyAddress">
+              <PropertyRef Name="Pin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyTag_Property">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="PropertyTag" Type="Self.PropertyTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Pin" />
+            </Principal>
+            <Dependent Role="PropertyTag">
+              <PropertyRef Name="Pin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PropertyModelStoreContainer">
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyAddress" EntityType="Self.PropertyAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyClass" EntityType="Self.PropertyClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyTag" EntityType="Self.PropertyTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Township" EntityType="Self.Township" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Property_PropertyClass" Association="Self.FK_Property_PropertyClass">
+            <End Role="PropertyClass" EntitySet="PropertyClass" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_Township" Association="Self.FK_Property_Township">
+            <End Role="Township" EntitySet="Township" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyAddress_Property" Association="Self.FK_PropertyAddress_Property">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="PropertyAddress" EntitySet="PropertyAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyTag_Property" Association="Self.FK_PropertyTag_Property">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="PropertyTag" EntitySet="PropertyTag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PropertyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PropertyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Properties" EntityType="PropertyModel.Property" />
+          <EntitySet Name="PropertyAddresses" EntityType="PropertyModel.PropertyAddress" />
+          <EntitySet Name="PropertyClasses" EntityType="PropertyModel.PropertyClass" />
+          <EntitySet Name="PropertyTags" EntityType="PropertyModel.PropertyTag" />
+          <EntitySet Name="Townships" EntityType="PropertyModel.Township" />
+          <AssociationSet Name="FK_Property_PropertyClass" Association="PropertyModel.FK_Property_PropertyClass">
+            <End Role="PropertyClass" EntitySet="PropertyClasses" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_Township" Association="PropertyModel.FK_Property_Township">
+            <End Role="Township" EntitySet="Townships" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyAddress_Property" Association="PropertyModel.FK_PropertyAddress_Property">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="PropertyAddress" EntitySet="PropertyAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyTag_Property" Association="PropertyModel.FK_PropertyTag_Property">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="PropertyTag" EntitySet="PropertyTags" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Pin" />
+          </Key>
+          <Property Name="Pin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassNum" Type="Int16" Nullable="false" />
+          <Property Name="TownNum" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Int16" />
+          <Property Name="LocationId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCode" Type="Int32" Nullable="false" />
+          <Property Name="NeighborhoodId" Type="Int32" Nullable="false" />
+          <Property Name="HomeImpYear" Type="Int16" />
+          <Property Name="ResType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuildingUse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AptCount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommUnits" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ExtDesc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FullBath" Type="Byte" />
+          <Property Name="HalfBath" Type="Byte" />
+          <Property Name="BasementDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AtticDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AirCond" Type="Byte" />
+          <Property Name="Fireplace" Type="Byte" />
+          <Property Name="GarageDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int16" Nullable="false" />
+          <Property Name="BuildingSF" Type="Int32" />
+          <Property Name="LandSF" Type="Int32" />
+          <Property Name="TotalAllBuildingSF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UnitsTotal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaleDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaleAmount" Type="Int32" />
+          <NavigationProperty Name="PropertyClass" Relationship="PropertyModel.FK_Property_PropertyClass" FromRole="Property" ToRole="PropertyClass" />
+          <NavigationProperty Name="Township" Relationship="PropertyModel.FK_Property_Township" FromRole="Property" ToRole="Township" />
+          <NavigationProperty Name="PropertyAddress" Relationship="PropertyModel.FK_PropertyAddress_Property" FromRole="Property" ToRole="PropertyAddress" />
+          <NavigationProperty Name="PropertyTags" Relationship="PropertyModel.FK_PropertyTag_Property" FromRole="Property" ToRole="PropertyTag" />
+        </EntityType>
+        <EntityType Name="PropertyAddress">
+          <Key>
+            <PropertyRef Name="Pin" />
+          </Key>
+          <Property Name="Pin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HouseNum" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StreetDir" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="Int16" />
+          <NavigationProperty Name="Property" Relationship="PropertyModel.FK_PropertyAddress_Property" FromRole="PropertyAddress" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="PropertyClass">
+          <Key>
+            <PropertyRef Name="ClassNum" />
+          </Key>
+          <Property Name="ClassNum" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Properties" Relationship="PropertyModel.FK_Property_PropertyClass" FromRole="PropertyClass" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="PropertyTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Property" Relationship="PropertyModel.FK_PropertyTag_Property" FromRole="PropertyTag" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Township">
+          <Key>
+            <PropertyRef Name="TownNum" />
+          </Key>
+          <Property Name="TownNum" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Properties" Relationship="PropertyModel.FK_Property_Township" FromRole="Township" ToRole="Property" />
+        </EntityType>
+        <Association Name="FK_Property_PropertyClass">
+          <End Type="PropertyModel.PropertyClass" Role="PropertyClass" Multiplicity="1" />
+          <End Type="PropertyModel.Property" Role="Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyClass">
+              <PropertyRef Name="ClassNum" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ClassNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_Township">
+          <End Type="PropertyModel.Township" Role="Township" Multiplicity="1" />
+          <End Type="PropertyModel.Property" Role="Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Township">
+              <PropertyRef Name="TownNum" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="TownNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyAddress_Property">
+          <End Type="PropertyModel.Property" Role="Property" Multiplicity="1" />
+          <End Type="PropertyModel.PropertyAddress" Role="PropertyAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Pin" />
+            </Principal>
+            <Dependent Role="PropertyAddress">
+              <PropertyRef Name="Pin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyTag_Property">
+          <End Type="PropertyModel.Property" Role="Property" Multiplicity="1" />
+          <End Type="PropertyModel.PropertyTag" Role="PropertyTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Pin" />
+            </Principal>
+            <Dependent Role="PropertyTag">
+              <PropertyRef Name="Pin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PropertyModelStoreContainer" CdmEntityContainer="PropertyEntities">
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="PropertyModel.Property">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="UnitsTotal" ColumnName="UnitsTotal" />
+                <ScalarProperty Name="TotalAllBuildingSF" ColumnName="TotalAllBuildingSF" />
+                <ScalarProperty Name="LandSF" ColumnName="LandSF" />
+                <ScalarProperty Name="BuildingSF" ColumnName="BuildingSF" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="GarageDesc" ColumnName="GarageDesc" />
+                <ScalarProperty Name="Fireplace" ColumnName="Fireplace" />
+                <ScalarProperty Name="AirCond" ColumnName="AirCond" />
+                <ScalarProperty Name="AtticDesc" ColumnName="AtticDesc" />
+                <ScalarProperty Name="BasementDesc" ColumnName="BasementDesc" />
+                <ScalarProperty Name="HalfBath" ColumnName="HalfBath" />
+                <ScalarProperty Name="FullBath" ColumnName="FullBath" />
+                <ScalarProperty Name="ExtDesc" ColumnName="ExtDesc" />
+                <ScalarProperty Name="CommUnits" ColumnName="CommUnits" />
+                <ScalarProperty Name="AptCount" ColumnName="AptCount" />
+                <ScalarProperty Name="BuildingUse" ColumnName="BuildingUse" />
+                <ScalarProperty Name="ResType" ColumnName="ResType" />
+                <ScalarProperty Name="HomeImpYear" ColumnName="HomeImpYear" />
+                <ScalarProperty Name="NeighborhoodId" ColumnName="NeighborhoodId" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="TownNum" ColumnName="TownNum" />
+                <ScalarProperty Name="ClassNum" ColumnName="ClassNum" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyAddresses">
+            <EntityTypeMapping TypeName="PropertyModel.PropertyAddress">
+              <MappingFragment StoreEntitySet="PropertyAddress">
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Apt" ColumnName="Apt" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="StreetDir" ColumnName="StreetDir" />
+                <ScalarProperty Name="HouseNum" ColumnName="HouseNum" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyClasses">
+            <EntityTypeMapping TypeName="PropertyModel.PropertyClass">
+              <MappingFragment StoreEntitySet="PropertyClass">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassNum" ColumnName="ClassNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyTags">
+            <EntityTypeMapping TypeName="PropertyModel.PropertyTag">
+              <MappingFragment StoreEntitySet="PropertyTag">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Townships">
+            <EntityTypeMapping TypeName="PropertyModel.Township">
+              <MappingFragment StoreEntitySet="Township">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TownNum" ColumnName="TownNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

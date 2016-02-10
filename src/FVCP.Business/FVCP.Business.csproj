@@ -44,8 +44,11 @@
     <Compile Include="Command\AddPropertyTag\AddPropertyTagRequest.cs" />
     <Compile Include="Command\AddPropertyTag\InvalidPropertyTagException.cs" />
     <Compile Include="Command\AddPropertyTag\PropertyAddTagValidator.cs" />
+    <Compile Include="Core\ICQExecution.cs" />
     <Compile Include="Core\ICommand.cs" />
     <Compile Include="Core\IRequest.cs" />
+    <Compile Include="Core\ServiceResult.cs" />
+    <Compile Include="Query\GetPropertyByPin\GetPropertyByPinRequest.cs" />
     <Compile Include="Query\GetPropertyByPin\GetPropertyByPinQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +56,10 @@
     <ProjectReference Include="..\FVCP.Domain\FVCP.Domain.csproj">
       <Project>{e8444eab-6009-4049-8631-084bb8484934}</Project>
       <Name>FVCP.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FVCP.DTO\FVCP.DTO.csproj">
+      <Project>{30ae912c-ee77-420b-b088-c205afa35d56}</Project>
+      <Name>FVCP.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

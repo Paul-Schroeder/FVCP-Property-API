@@ -9,8 +9,18 @@ namespace FVCP.Infrastructure.DependencyInjection
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+            container.Register(Component
+                .For<ILoggingService>()
+                .ImplementedBy<Log4NetLoggingService>()
+                .LifestylePerWebRequest()
+                );
+
             container.Register(Component.For<ExceptionLogger>());
-            container.Register(Component.For<IRequestProcessor>().ImplementedBy<RequestProcessor>());
+            //container.Register(Component.For<IRequestProcessor>().ImplementedBy<RequestProcessor>());
+            container.Register(Component
+                .For(typeof(ICQProcessor<>))
+                .ImplementedBy(typeof(CQProcessor<>))
+                .LifestylePerWebRequest());
         }
     }
 }
