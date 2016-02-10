@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.DTO
 {
+    [Serializable]
     public class PropertyAddressDTO : IPropertyAddressDTO
     {
         public string Pin { get; set; }

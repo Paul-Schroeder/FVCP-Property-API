@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.DTO
 {
+    [Serializable]
     public class PropertyClassDTO : IPropertyClassDTO
     {
         public short ClassNum { get; set; }

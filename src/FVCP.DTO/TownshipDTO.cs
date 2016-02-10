@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.DTO
 {
+    [Serializable]
     public class TownshipDTO : ITownshipDTO
     {
         public int TownNum { get; set; }

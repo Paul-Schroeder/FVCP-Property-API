@@ -19,18 +19,18 @@ namespace FVCP.Services.Controllers
         }
 
         [ActionName("DefaultAction")]
-        public string Get(int id)
+        public PropertyTagDTO Get(int id)
         {
-            string retVal = null;
+            PropertyTagDTO retVal = null;
 
             if (id > 0)
             {
                 var cqProcessor = base.DIContainer.Resolve<ICQProcessor<IPropertyTagDTO>>();
 
-                var srResult = cqProcessor.Process(new GetPropertyTagByIdRequest()
-                {
-                    Id = id
-                });
+                var srResult = cqProcessor.Process(new GetPropertyTagByIdRequest() { Id = id });
+
+                if (srResult.Success)
+                    retVal = srResult.Data as PropertyTagDTO;
             }
 
             return retVal;

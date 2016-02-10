@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.DTO
 {
+    [Serializable]
     public class PropertyTagDTO : IPropertyTagDTO
     {
         public int Id { get; set; }
