@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Persistence
 {
-    public class TownshipRepository
+    public class TownshipRepository : ITownshipRepository
     {
         public static ITownshipDTO MapFieldValues(EF.Township dbItem)
         {

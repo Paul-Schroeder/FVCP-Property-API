@@ -24,9 +24,11 @@ namespace FVCP.Infrastructure.DependencyInjection
         void RegisterRepositories(IWindsorContainer container)
         {
             container.Register(Classes.FromAssemblyContaining<PropertyRepository>()
-                                      .BasedOn<IPropertyRepository>()
-                                      .WithServiceFirstInterface()
-                                      .LifestyleSingleton());
+                          .Where(type => type.Name.EndsWith("Repository"))
+                          .WithServiceSelf()
+                          //.BasedOn<IPropertyRepository>()
+                          .WithServiceFirstInterface()
+                          .LifestyleSingleton());
         }
     }
 }

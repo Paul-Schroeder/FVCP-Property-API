@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Persistence
 {
-    public class PropertyClassRepository
+    public class PropertyClassRepository : IPropertyClassRepository
     {
         public static IPropertyClassDTO MapFieldValues(EF.PropertyClass dbItem)
         {

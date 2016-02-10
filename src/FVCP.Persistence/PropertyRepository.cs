@@ -31,14 +31,14 @@ namespace FVCP.Persistence
                     .FirstOrDefault(x => x.Pin == pin);
             }
 
-            IPropertyDTO dto = PropertyRepository.MapFieldValuesProperty(dbProperty);
+            IPropertyDTO dto = PropertyRepository.MapFieldValues(dbProperty);
             PropertyFactory myFact = new PropertyFactory();
             IProperty retVal = myFact.Create(dto);
 
             return retVal;
         }
 
-        public static IPropertyDTO MapFieldValuesProperty(EF.Property dbItem)
+        public static IPropertyDTO MapFieldValues(EF.Property dbItem)
         {
             if (dbItem == null)
                 return null;

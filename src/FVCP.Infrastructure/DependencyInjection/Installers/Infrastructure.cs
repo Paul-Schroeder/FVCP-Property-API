@@ -12,7 +12,7 @@ namespace FVCP.Infrastructure.DependencyInjection
             container.Register(Component
                 .For<ILoggingService>()
                 .ImplementedBy<Log4NetLoggingService>()
-                .LifestylePerWebRequest()
+                .LifestyleSingleton()
                 );
 
             container.Register(Component.For<ExceptionLogger>());

@@ -22,12 +22,6 @@ namespace FVCP.Infrastructure.Logging
             try
             {
                 //System.Diagnostics.Debug.WriteLine(string.Format("Before method: {0}", invocation.Method.Name));
-                foreach (var argumentItem in invocation.Arguments)
-                {
-                    _log.Info(String.Concat("Argument: ", JsonConvert.SerializeObject(argumentItem))
-                        , LogMessageType.Unknown);
-                }
-
                 invocation.Proceed();
             }
             catch (Exception e)

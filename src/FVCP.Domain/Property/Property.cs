@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Domain
 {
-    public class Property : PropertyDTO, IProperty
+    public class Property : IProperty
     {
         public Property(IPropertyDTO data)
         {

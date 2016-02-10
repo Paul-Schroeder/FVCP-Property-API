@@ -51,6 +51,8 @@
     <Compile Include="Query\GetPropertyByPin\GetPropertyByPinRequest.cs" />
     <Compile Include="Query\GetPropertyByPin\GetPropertyByPinQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\GetPropertyTagByIdRequest\GetPropertyTagByIdQuery.cs" />
+    <Compile Include="Query\GetPropertyTagByIdRequest\GetPropertyTagByIdRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FVCP.Domain\FVCP.Domain.csproj">

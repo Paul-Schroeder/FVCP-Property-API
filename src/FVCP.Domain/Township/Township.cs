@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Domain
 {
-    public class Township : TownshipDTO, ITownship
+    public class Township : ITownship
     {
         public Township(ITownshipDTO data)
         {

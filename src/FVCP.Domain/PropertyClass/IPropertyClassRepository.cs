@@ -8,6 +8,6 @@ namespace FVCP.Domain
 {
     public interface IPropertyClassRepository
     {
-        IPropertyClass GetByClassNum(short classNum);
+        //IPropertyClass GetByClassNum(short classNum);
     }
 }

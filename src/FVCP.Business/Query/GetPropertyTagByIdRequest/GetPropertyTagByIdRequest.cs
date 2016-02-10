@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FVCP.Domain
+namespace FVCP.Business.Query
 {
-    public interface ITownshipRepository
+    public class GetPropertyTagByIdRequest : IRequest
     {
-        //IProperty GetByPin(string pin);
+        public int Id { get; set; }
     }
 }

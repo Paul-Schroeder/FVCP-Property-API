@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FVCP.Domain
 {
-    public class PropertyTag : PropertyTagDTO, IPropertyTag
+    public class PropertyTag : IPropertyTag
     {
         public PropertyTag(IPropertyTagDTO data)
         {

@@ -8,6 +8,6 @@ namespace FVCP.Domain
 {
     public interface IPropertyTagRepository
     {
-        IProperty GetByPin(string pin);
+        IPropertyTag GetPropertyTagById(int id);
     }
 }

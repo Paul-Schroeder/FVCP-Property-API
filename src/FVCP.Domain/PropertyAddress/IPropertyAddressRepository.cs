@@ -8,6 +8,6 @@ namespace FVCP.Domain
 {
     public interface IPropertyAddressRepository
     {
-        IPropertyAddress GetByPin(string pin);
+        //IPropertyAddress GetByPin(string pin);
     }
 }

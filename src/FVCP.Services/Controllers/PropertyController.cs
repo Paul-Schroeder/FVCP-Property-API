@@ -36,12 +36,6 @@ namespace FVCP.Services.Controllers
                 {
                     Pin = pin
                 });
-
-                //var srProperty = new GetPropertyByPinQuery( requestProcessor.Execute(
-                //    new GetPropertyByPinRequest()
-                //    {
-                //        Pin = pin
-                //    });
             }
 
             return retVal;
