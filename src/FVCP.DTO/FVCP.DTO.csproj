@@ -45,6 +45,7 @@
     <Compile Include="PropertyAddressDTO.cs" />
     <Compile Include="PropertyClassDTO.cs" />
     <Compile Include="PropertyTagDTO.cs" />
+    <Compile Include="ServiceResult.cs" />
     <Compile Include="TownshipDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

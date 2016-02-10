@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FVCP.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace FVCP.Domain
 {
     public interface IPropertyTagRepository
     {
+        ServiceResult<IPropertyTag> AddPropertyTag(string pin, string name);
         IPropertyTag GetPropertyTagById(int id);
+        ServiceResult<IPropertyTag> UpdatePropertyTag(int id, string name);
+        ServiceResult<bool> DeletePropertyTag(int id);
     }
 }

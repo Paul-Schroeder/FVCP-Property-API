@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.Windsor;
+using FVCP.DTO;
 using FVCP.Business;
 
 namespace FVCP.Infrastructure

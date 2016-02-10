@@ -36,6 +36,14 @@ namespace FVCP.Services.Controllers
                 {
                     Pin = pin
                 });
+
+                if (srResult.Success)
+                {
+                    retVal = JsonConvert.SerializeObject(srResult.Data);
+                } else
+                {
+                    retVal = "Not Found";
+                }
             }
 
             return retVal;
@@ -47,7 +55,7 @@ namespace FVCP.Services.Controllers
             var request = new AddPropertyTagRequest()
             {
                 Pin = pin,
-                Tag = tag
+                Name = tag
             };
 
 //            _requestProcessor.Process<AddPropertyTagRequest>(request);

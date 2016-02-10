@@ -84,6 +84,10 @@
       <Project>{e8444eab-6009-4049-8631-084bb8484934}</Project>
       <Name>FVCP.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FVCP.DTO\FVCP.DTO.csproj">
+      <Project>{30ae912c-ee77-420b-b088-c205afa35d56}</Project>
+      <Name>FVCP.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FVCP.Persistence\FVCP.Persistence.csproj">
       <Project>{7f21ac7f-e04e-447c-b1c7-a7f3d0001212}</Project>
       <Name>FVCP.Persistence</Name>

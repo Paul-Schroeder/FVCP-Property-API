@@ -16,6 +16,6 @@ namespace FVCP.Domain
         IPropertyAddress PropertyAddress { get; set; }
         List<IPropertyTag> PropertyTags { get; set; }
 
-        void AddPropertyTag(string tag);
+//        void AddPropertyTag(string tag);
     }
 }

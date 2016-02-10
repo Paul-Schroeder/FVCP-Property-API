@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace FVCP.Business.Command
 {
-    public class PropertyAddTagValidator
+    public class AddPropertyTagValidator
     {
         public bool IsPropertyTagValid(string pin, string tag)
         {
-            return (string.IsNullOrEmpty(tag));
-            //return !(string.IsNullOrEmpty(tag));
+            return !(string.IsNullOrEmpty(tag));
         }
     }
 }

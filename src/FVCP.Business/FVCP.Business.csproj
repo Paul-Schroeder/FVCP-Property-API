@@ -42,12 +42,16 @@
   <ItemGroup>
     <Compile Include="Command\AddPropertyTag\AddPropertyTagCommand.cs" />
     <Compile Include="Command\AddPropertyTag\AddPropertyTagRequest.cs" />
-    <Compile Include="Command\AddPropertyTag\InvalidPropertyTagException.cs" />
-    <Compile Include="Command\AddPropertyTag\PropertyAddTagValidator.cs" />
+    <Compile Include="Command\DeletePropertyTag\DeletePropertyTagCommand.cs" />
+    <Compile Include="Command\DeletePropertyTag\DeletePropertyTagRequest.cs" />
+    <Compile Include="Exception\InvalidPropertyTagException.cs" />
+    <Compile Include="Command\AddPropertyTag\AddPropertyTagValidator.cs" />
+    <Compile Include="Command\UpdatePropertyTag\UpdatePropertyTagCommand.cs" />
+    <Compile Include="Command\UpdatePropertyTag\UpdatePropertyTagRequest.cs" />
+    <Compile Include="Command\UpdatePropertyTag\UpdatePropertyTagValidator.cs" />
     <Compile Include="Core\ICQExecution.cs" />
     <Compile Include="Core\ICommand.cs" />
     <Compile Include="Core\IRequest.cs" />
-    <Compile Include="Core\ServiceResult.cs" />
     <Compile Include="Query\GetPropertyByPin\GetPropertyByPinRequest.cs" />
     <Compile Include="Query\GetPropertyByPin\GetPropertyByPinQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

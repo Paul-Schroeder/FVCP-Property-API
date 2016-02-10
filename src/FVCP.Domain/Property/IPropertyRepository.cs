@@ -9,7 +9,6 @@ namespace FVCP.Domain
     public interface IPropertyRepository
     {
         IProperty GetByPin(string pin);
-        void AddTag(string tag);
         IProperty Save(IProperty property);
     }
 }

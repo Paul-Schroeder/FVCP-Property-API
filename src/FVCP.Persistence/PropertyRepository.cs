@@ -13,11 +13,6 @@ namespace FVCP.Persistence
 {
     public class PropertyRepository : IPropertyRepository
     {
-        public void AddTag(string tag)
-        {
-            throw new NotImplementedException();
-        }
-
         public IProperty GetByPin(string pin)
         {
             FVCP.Persistence.EF.Property dbProperty = null;
@@ -30,6 +25,9 @@ namespace FVCP.Persistence
                     .Include(x => x.Township)
                     .FirstOrDefault(x => x.Pin == pin);
             }
+
+            if (dbProperty == null)
+                return null;
 
             PropertyDTO dto = PropertyRepository.MapFieldValues(dbProperty);
             PropertyFactory myFact = new PropertyFactory();

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace FVCP.Business.Command
 {
-    public class AddPropertyTagRequest : IRequest
+    public class UpdatePropertyTagValidator
     {
-        public string Pin { get; set; }
-        public string Name { get; set; }
+        public bool IsPropertyTagValid(string tag)
+        {
+            return !(string.IsNullOrEmpty(tag));
+        }
     }
 }

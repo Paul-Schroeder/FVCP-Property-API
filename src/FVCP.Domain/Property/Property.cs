@@ -100,21 +100,21 @@ namespace FVCP.Domain
             }
         }
 
-        public void AddPropertyTag(string tag)
-        {
-            IPropertyTag myTag = this.PropertyTags.FirstOrDefault(x => x.Data.Name == tag);
-            if (myTag == null)
-            {
-                PropertyTagFactory myFact = new PropertyTagFactory();
-                myTag = myFact.Create(new PropertyTagDTO() {
-                    Id = 0,
-                    Name = tag,
-                    Pin = this.Data.Pin
-                });
+        //public void AddPropertyTag(string tag)
+        //{
+        //    IPropertyTag myTag = this.PropertyTags.FirstOrDefault(x => x.Data.Name == tag);
+        //    if (myTag == null)
+        //    {
+        //        PropertyTagFactory myFact = new PropertyTagFactory();
+        //        myTag = myFact.Create(new PropertyTagDTO() {
+        //            Id = 0,
+        //            Name = tag,
+        //            Pin = this.Data.Pin
+        //        });
 
-                this.PropertyTags.Add(myTag);
-            }
-        }
+        //        this.PropertyTags.Add(myTag);
+        //    }
+        //}
 
     }
 }

@@ -30,16 +30,29 @@ namespace FVCP.Services
             config.MapHttpAttributeRoutes();
 
             // Map this rule first
-            config.Routes.MapHttpRoute(
-                 "WithActionApi",
-                 "api/{controller}/{action}/{id}"
-             );
+            //config.Routes.MapHttpRoute(
+            //     "WithActionApi",
+            //     "api/{controller}/{action}/{id}"
+            // );
+
+            //config.Routes.MapHttpRoute(
+            //    name:  "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { action = "DefaultAction", id = System.Web.Http.RouteParameter.Optional }
+            //);
 
             config.Routes.MapHttpRoute(
-                "DefaultApi",
-                "api/{controller}/{id}",
-                new { action = "DefaultAction", id = System.Web.Http.RouteParameter.Optional }
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
             );
+
+            // For POST with json "data" parameter.
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi2",
+            //    routeTemplate: "api/{controller}/{data}",
+            //    defaults: new { }
+            //);
         }
 
         private static void RegisterControllerActivator(IWindsorContainer container)

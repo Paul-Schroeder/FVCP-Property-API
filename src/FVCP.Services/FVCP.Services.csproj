@@ -231,6 +231,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ApiControllersInstaller.cs" />
+    <Compile Include="Infrastructure\ErrorResult.cs" />
     <Compile Include="Infrastructure\WindsorCompositionRoot.cs" />
     <Compile Include="Infrastructure\WindsorDependencyResolver.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />

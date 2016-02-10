@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FVCP.Business.Command
 {
-    public class AddPropertyTagRequest : IRequest
+    public class UpdatePropertyTagRequest : IRequest
     {
-        public string Pin { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace FVCP.Infrastructure.DependencyInjection
                 );
 
             container.Register(Component.For<ExceptionLogger>());
+            
             //container.Register(Component.For<IRequestProcessor>().ImplementedBy<RequestProcessor>());
             container.Register(Component
                 .For(typeof(ICQProcessor<>))

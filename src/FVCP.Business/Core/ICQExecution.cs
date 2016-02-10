@@ -1,4 +1,6 @@
-﻿namespace FVCP.Business
+﻿using FVCP.DTO;
+
+namespace FVCP.Business
 {
     /// <summary>
     /// Interface for commands and queries using CQRS pattern.

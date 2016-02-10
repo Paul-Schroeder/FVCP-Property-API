@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FVCP.Business
+namespace FVCP.DTO
 {
     [Serializable]
     public class ServiceResult<T>
